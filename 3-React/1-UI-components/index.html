@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+
+<body class="container">
+
+    <hr />
+    <h1>component-arch for UI</h1>
+    <hr />
+
+    <div id="box1" class="alert alert-warning">
+        <input id="inp1" type="number" onchange="changeHandler()" style="text-align: right" />
+        <hr />
+        <span class="badge badge-primary">0</span>
+    </div>
+
+    <script>
+        let applnState = {
+            count: 0
+        }
+
+        let inp1 = document.getElementById('inp1');
+        let interval = setInterval(() => {
+            applnState.count++;
+            inp1.value = applnState.count;
+            inp1.dispatchEvent(new Event('change'))
+        }, 1000)
+
+        function changeHandler() {
+            if (applnState.count === 10) {
+                document.querySelector('.badge').innerHTML = "No More";
+                clearInterval(interval);
+            }
+            else
+                document.querySelector('.badge').innerHTML = applnState.count;
+        }
+
+    </script>
+
+
+
+    <x-counter value="10"></x-counter>
+    <x-counter value="100"></x-counter>
+
+    <script src="./index.js"></script>
+
+
+
+
+</body>
+
+</html>
