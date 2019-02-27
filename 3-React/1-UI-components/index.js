@@ -1,8 +1,90 @@
 
 
+//----------------------------------------
+//  clocks
+//----------------------------------------
+
+//--------------
+// by react lib
+//--------------
 
 
-// Template 
+let indiaClockEle1 = document.querySelector('#box1 .india')
+let usClockEle1 = document.querySelector('#box1 .us')
+
+
+function clockUI1(zone) {
+    let timeZone
+    if (zone === 'india')
+        timeZone = 'Asia/Kolkata'
+    if (zone === 'us')
+        timeZone = 'America/New_York'
+    let time = new Date().toLocaleTimeString("en-US", { timeZone })
+    return (
+        <div>
+            <div className="card card-default">
+                <div className="card-header">{zone}</div>
+                <div className="card-body">
+                    {time}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+setInterval(() => {
+    ReactDOM.render(clockUI1('india'), indiaClockEle1);
+}, 1000)
+
+setInterval(() => {
+    ReactDOM.render(clockUI1('us'), usClockEle1);
+}, 1000)
+
+
+
+//--------------
+// by plain js
+//--------------
+
+let indiaClockEle2 = document.querySelector('#box2 .india')
+let usClockEle2 = document.querySelector('#box2 .us')
+
+function clockUI2(zone) {
+    let timeZone
+    if (zone === 'india')
+        timeZone = 'Asia/Kolkata'
+    if (zone === 'us')
+        timeZone = 'America/New_York'
+    let time = new Date().toLocaleTimeString("en-US", { timeZone })
+    let clockUI = `
+        <div>
+        <div class="card card-default">
+            <div class="card-header">${zone}</div>
+            <div class="card-body">
+                ${time}
+            </div>
+        </div>
+        </div>
+    `
+    return clockUI;
+}
+
+setInterval(() => {
+    indiaClockEle2.innerHTML = clockUI2('india')
+}, 1000)
+setInterval(() => {
+    usClockEle2.innerHTML = clockUI2('us')
+}, 1000)
+
+
+
+//----------------------------------------
+// web component spec
+//----------------------------------------
+
+/*
+// Template
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
@@ -66,12 +148,13 @@ class XCounter extends HTMLElement {
 }
 
 
-
 customElements.define('x-counter', XCounter)
-
 
 
 var xCounter = document.querySelector('x-counter');
 xCounter.addEventListener('valueChange', e => {
     console.log(e.detail);
 })
+
+
+*/

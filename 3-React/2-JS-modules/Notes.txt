@@ -1,0 +1,25 @@
+
+
+
+commonJS standard
+//--------------------------
+
+
+-> by default every .js file is module
+-> all variable/function in .js file are private by default
+-> to abstract/export any member(s) use 'module.exports' keyword
+-> to require/import any module  use 'require()' keyword
+-> group related modules into package with description file 'package.json'
+
+
+
+
+ECMAScript module standard
+//--------------------------
+
+-> by default every .js file is module
+-> all variable/function in .js file are private by default
+-> to abstract/export any member(s) use 'export' keyword
+-> to require/import any module  use 'import' keyword
+-> group related modules into package with description file 'package.json'
+

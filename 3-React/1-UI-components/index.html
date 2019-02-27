@@ -16,13 +16,46 @@
     <h1>component-arch for UI</h1>
     <hr />
 
-    <div id="box1" class="alert alert-warning">
-        <input id="inp1" type="number" onchange="changeHandler()" style="text-align: right" />
-        <hr />
-        <span class="badge badge-primary">0</span>
+    <hr />
+
+    <div class="row">
+        <div id="box1" style="clear: both;">
+            <div style="float: left;">
+                <div class="india"></div>
+            </div>
+            <div style="float: left;">
+                <div class="us"></div>
+            </div>
+        </div>
+        <div id="box2">
+            <div style="float: left;">
+                <div class="india"></div>
+            </div>
+            <div style="float: left;">
+                <div class="us"></div>
+            </div>
+        </div>
+
     </div>
 
+
+    <div class="row">
+        <div class="col-6">
+            <hr />
+            <x-counter value="10"></x-counter>
+            <hr />
+            <div id="box1" class="alert alert-warning">
+                <input id="inp1" type="number" onchange="changeHandler()" style="text-align: right" />
+                <hr />
+                <span class="badge badge-primary">0</span>
+            </div>
+        </div>
+    </div>
+
+
+
     <script>
+
         let applnState = {
             count: 0
         }
@@ -45,12 +78,11 @@
 
     </script>
 
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.12/browser.js"></script>
 
-
-    <x-counter value="10"></x-counter>
-    <x-counter value="100"></x-counter>
-
-    <script src="./index.js"></script>
+    <script type="text/babel" src="./index.js"></script>
 
 
 

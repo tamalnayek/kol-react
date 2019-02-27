@@ -1,0 +1,8 @@
+
+
+
+- props & state
+- component life-cycles
+- component communication ( uni-directional-data-flow )
+- context
+- HOC pattern
