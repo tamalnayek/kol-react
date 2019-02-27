@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import Greeting from './components/Greeting';
 import ActionBox from './components/ActionBox';
+import Box from './components/Box';
+import Employee from './components/Employee';
+import Product from './components/Product';
+import A from './components/A';
+
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -27,7 +32,25 @@ class App extends Component {
       <div className="container">
         <hr />
         <h1>{title} : <span className="badge badge-dark">{trainer}</span></h1>
-       
+
+        <hr />
+        <A color={"red"} />
+        <hr />
+        <A color={"green"} />
+        <hr />
+
+        <Box >
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+        </Box>
+
+        <Box>
+          <Employee />
+          <Employee />
+        </Box>
+
         <hr />
         <ActionBox />
         <hr />
