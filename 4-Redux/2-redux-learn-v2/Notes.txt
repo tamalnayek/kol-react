@@ -1,0 +1,36 @@
+
+
+e.g : online-shopping-ui
+
+//-------------------------------------------
+step-1 : indentify UI state/model
+//-------------------------------------------
+         -> users
+         -> products
+         -> reviews
+         -> cart
+//-------------------------------------------
+step-2 : indentify action(s) which cause state change
+//-------------------------------------------
+        -> LOAD_PRODUCTS
+        -> LOAD_REVIEW
+        -> ADD_NEW_REVIEW
+        -> BUY
+        -> CHECKOUT
+        .....
+//-------------------------------------------
+step-3 : create action sync/async by 'action-creator'
+//-------------------------------------------
+
+//-------------------------------------------
+step-4 : define reducer(s) to process action with current state
+//-------------------------------------------
+
+//-------------------------------------------
+step-5 : combine all reducer(s) to rootReducer
+//-------------------------------------------
+
+//-------------------------------------------
+step-6 : creaet store with rootReducer
+//-------------------------------------------
+
