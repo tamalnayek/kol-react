@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import Product from './components/Product';
+import CartView from './components/CartView';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      isCartOpen: false,
       cart: [],
       items: [
         {
@@ -31,6 +33,12 @@ class App extends Component {
     }
   }
 
+  toggleCart(e) {
+    e.preventDefault();
+    let { isCartOpen } = this.state;
+    this.setState({ isCartOpen: !isCartOpen })
+  }
+
   addToCart(item, qty) {
     let { cart } = this.state;
     cart = cart.concat(item)
@@ -39,18 +47,27 @@ class App extends Component {
 
 
   renderItems() {
-    let { items } = this.state;
-    return items.map((item, idx) => {
-      return (
-        <div key={idx} className="list-group-item">
-          <Product value={item} onBuy={(item, qty) => this.addToCart(item, qty)} />
-        </div>
-      )
-    })
+    let { items, isCartOpen } = this.state;
+    if (!isCartOpen) {
+      return items.map((item, idx) => {
+        return (
+          <div key={idx} className="list-group-item">
+            <Product value={item} onBuy={(item, qty) => this.addToCart(item, qty)} />
+          </div>
+        )
+      })
+    }
+  }
+
+  renderCart() {
+    let { cart, isCartOpen } = this.state;
+    if (isCartOpen) {
+      return <CartView cart={cart} />
+    }
   }
 
   render() {
-    let { cart } = this.state;
+    let { cart, isCartOpen } = this.state;
     return (
       <div className="container">
         <nav className="navbar navbar-light bg-primary">
@@ -60,7 +77,14 @@ class App extends Component {
         <i className="fa fa-shopping-cart"></i> &nbsp;
         <span className="badge badge-danger">{cart.length}</span> item(s) in cart
         <hr />
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="/" onClick={e => this.toggleCart(e)}>{isCartOpen ? 'View products' : 'View cart'}</a>
+          </li>
+        </ul>
+        <hr />
         {this.renderItems()}
+        {this.renderCart()}
       </div>
     );
   }
